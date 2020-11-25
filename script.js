@@ -44,7 +44,7 @@ function doTheThing(index){
         }
       }
       
-      if(ao===2&&ax===0){
+      if(ao===0&&ax===2){
         for(let j=0; j<=2; j++){
           if(!a[j]){
             a[j]='x'
@@ -61,7 +61,45 @@ function doTheThing(index){
         i=9
       }
     }
-    console.log(done);
+
+
+
+    if(!done){
+      for(let i=0; i<8; i++){
+        let a=[]
+        for(let j=0; j<=2; j++){
+          a.push(array[lines[i][j]])
+        }
+        ao=0
+        ax=0
+        for(let j=0; j<=2; j++){
+          if(a[j]==='o'){
+            ao++
+          }
+          if(a[j]==='x'){
+            ax++
+          }
+        }
+        
+        if(ao===2&&ax===0){
+          for(let j=0; j<=2; j++){
+            if(!a[j]){
+              a[j]='x'
+              array[lines[i][j]]='x'
+              space[lines[i][j]].innerHTML='x'
+            }
+          }
+          done=true
+        }
+        for(let j=0; j<=2; j++){
+          array[lines[i][j]]=a[j]
+        }
+        if(ao===2&&ax===0){
+          i=9
+        }
+      }
+      console.log(done);
+    }
 
     if(!done){
       if(array[4]!==0){
