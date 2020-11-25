@@ -41,11 +41,12 @@ function doTheThing(index){
     }
     if(turn===1&&array[4]==='x'&&((array[0]==='o'&&array[8]==='o')||(array[2]==='o'&&array[6]==='o'))){
       done=true
-      let whichOne=Math.floor(Math.random() * 4)+1
+      let whichOne=Math.floor(Math.random() * 4)+1.1
       console.log(whichOne);
-      if(whichOne===2){whichOne=3}
-      if(whichOne===3){whichOne=5}
-      if(whichOne===4){whichOne=7}
+      if(whichOne===1.1){whichOne=1}
+      if(whichOne===2.1){whichOne=3}
+      if(whichOne===3.1){whichOne=5}
+      if(whichOne===4.1){whichOne=7}
       array[whichOne]='x'
       space[whichOne].innerHTML='x'
     }
