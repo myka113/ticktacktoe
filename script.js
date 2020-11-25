@@ -18,7 +18,7 @@ let lines=[[0,1,2], [3,4,5], [6,7,8],
 [0,3,6], [1,4,7], [2,5,8], 
 [0,4,8], [2,4,6]]
 
-
+let turn=0
 
 function doTheThing(index){
   if(!array[index]){
@@ -29,9 +29,7 @@ function doTheThing(index){
     let ax
     let done=false
 
-    let turn1=true
-
-    if(turn1&&index===4){
+    if(!turn&&index===4){
       done=true
       let whichOne=Math.floor(Math.random() * 4)+1
       console.log(whichOne);
@@ -41,7 +39,17 @@ function doTheThing(index){
       array[whichOne]='x'
       space[whichOne].innerHTML='x'
     }
-    turn1=false
+    if(turn===1&&array[4]==='x'&&((array[0]==='o'&&array[8]==='o')||(array[2]==='o'&&array[6]==='o'))){
+      done=true
+      let whichOne=Math.floor(Math.random() * 4)+1
+      console.log(whichOne);
+      if(whichOne===2){whichOne=3}
+      if(whichOne===3){whichOne=5}
+      if(whichOne===4){whichOne=7}
+      array[whichOne]='x'
+      space[whichOne].innerHTML='x'
+    }
+    turn++
 
     if(!done){
       for(let i=0; i<8; i++){
