@@ -28,37 +28,54 @@ function doTheThing(index){
     let ao
     let ax
     let done=false
-    for(let i=0; i<8; i++){
-      let a=[]
-      for(let j=0; j<=2; j++){
-        a.push(array[lines[i][j]])
-      }
-      ao=0
-      ax=0
-      for(let j=0; j<=2; j++){
-        if(a[j]==='o'){
-          ao++
-        }
-        if(a[j]==='x'){
-          ax++
-        }
-      }
-      
-      if(ao===0&&ax===2){
+
+    let turn1=true
+
+    if(turn1&&index===4){
+      done=true
+      let whichOne=Math.floor(Math.random() * 4)+1
+      console.log(whichOne);
+      if(whichOne===1){whichOne=0}
+      if(whichOne===3){whichOne=6}
+      if(whichOne===4){whichOne=8}
+      array[whichOne]='x'
+      space[whichOne].innerHTML='x'
+    }
+    turn1=false
+
+    if(!done){
+      for(let i=0; i<8; i++){
+        let a=[]
         for(let j=0; j<=2; j++){
-          if(!a[j]){
-            a[j]='x'
-            array[lines[i][j]]='x'
-            space[lines[i][j]].innerHTML='x'
+          a.push(array[lines[i][j]])
+        }
+        ao=0
+        ax=0
+        for(let j=0; j<=2; j++){
+          if(a[j]==='o'){
+            ao++
+          }
+          if(a[j]==='x'){
+            ax++
           }
         }
-        done=true
-      }
-      for(let j=0; j<=2; j++){
-        array[lines[i][j]]=a[j]
-      }
-      if(ao===0&&ax===2){
-        i=9
+        
+        if(ao===0&&ax===2){
+          for(let j=0; j<=2; j++){
+            if(!a[j]){
+              a[j]='x'
+              array[lines[i][j]]='x'
+              space[lines[i][j]].innerHTML='x'
+            }
+          }
+          done=true
+        }
+        for(let j=0; j<=2; j++){
+          array[lines[i][j]]=a[j]
+        }
+        if(ao===0&&ax===2){
+          i=9
+        }
       }
     }
 
