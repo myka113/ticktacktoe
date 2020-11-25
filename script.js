@@ -57,7 +57,7 @@ function doTheThing(index){
       for(let j=0; j<=2; j++){
         array[lines[i][j]]=a[j]
       }
-      if(ao===2&&ax===0){
+      if(ao===0&&ax===2){
         i=9
       }
     }
